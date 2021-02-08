@@ -17,16 +17,11 @@ public class Sec_Reviews {
     public driver Driver = null;
     public WebDriver driver = null;
 
-        @FindBy (xpath = "//*[@id='reviews-form-29']/div[4]/div[4]/div")
-        WebElement contBoton1;
-    //@FindBy/(xpath="//button[contains(text(),'Write Review')]')]")
-    //@FindBy(className = "writeReview btn btn-primary btn-block mb-10")
     @FindBy(xpath = "/html/body/div[2]/div[1]/div[1]/div/div[3]/div/div[2]/div[5]/div[2]/button")
     WebElement btnAddReview;
 
     @FindBy(id="ADDREVIEW")
     WebElement aux;
-
 
     //@FindBy(name="fullname")
     @FindBy (xpath = "//*[@id='reviews-form-29']/div[4]/div[1]/div[1]/input")
@@ -38,8 +33,8 @@ public class Sec_Reviews {
     @FindBy(name="reviews_comments")
     WebElement txtReview;
 
-    //@FindBy(xpath = "//*[@id='29']")
-    @FindBy(xpath = "//*[@id='reviews-form-29']/div[4]/textarea")
+    @FindBy(xpath = "//*[@id='29']")
+    //@FindBy(id = "29")
     WebElement btnSubmit;
 
     public Sec_Reviews(driver driver) {
@@ -48,62 +43,35 @@ public class Sec_Reviews {
     }
 
     public void addReview_01() {
-
-        Driver.implicitwait();
-        Driver.implicitwait();
-        Actions builder = new Actions(Driver.returnDriver());
-        builder.moveToElement(btnAddReview).click().build().perform();   //build para boton.
-        Driver.implicitwait();
-       // builder.moveToElement(btnAddReview).click();
-        //btnAddReview.click();
-        Driver.implicitwait();
-        Driver.implicitwait();
-
-      //  builder.moveToElement(pass1).click().sendKeys(password).build().perform();
-      //  aux.isDisplayed();
-      //  Driver.implicitwait();
-        //Driver.customWait_clickable_f2(btnAddReview);
-      //          btnAddReview.click();
-     //   btnAddReview.click();
+    //Driver.implicitwait();
+    //  Actions builder = new Actions(Driver.returnDriver());
+    //  builder.moveToElement(btnAddReview).click().build().perform();   //build para boton.
+    btnAddReview.click();
     }
 
     public void addNombre(String nombre) {
-
-
-
-        /* Driver.implicitwait();
-        Actions builder = new Actions(Driver.returnDriver());
-        builder.moveToElement(txtNombre).click().sendKeys(nombre).perform();*/
-
-        Driver.customWait_clickable(txtNombre);
-        //Driver.implicitwait();
-        //txtNombre.isDisplayed();
+        //Driver.customWait_clickable(txtNombre);
         txtNombre.sendKeys(nombre);
     }
 
     public void addEmail(String email) {
-        Driver.customWait_clickable(txtEmail);
+        //Driver.customWait_clickable(txtEmail);
         txtEmail.sendKeys(email);
     }
 
     public void addDescripcion(String review) {
-        Driver.customWait_clickable(txtReview);
+        //Driver.customWait_clickable(txtReview);
         txtReview.sendKeys(review);
         Driver.implicitwait();
        // txtReview.sendKeys(Keys.TAB);
     }
 
     public void addReview_02() {
-       Driver.customWait_clickable(btnSubmit);
-        btnSubmit.click();
-       //btnSubmit.click();
-       // btnSubmit.click();
-        //*******
-        /*Driver.implicitwait();
         Actions builder = new Actions(Driver.returnDriver());
-        builder.moveToElement(btnSubmit).click().build().perform();   //build para boton.
-        Driver.implicitwait();*/
+        builder.moveToElement(btnSubmit).click().build().perform();
 
-        //*[@id="29"]
+        //Driver.customWait_clickable(btnSubmit);
+        //btnSubmit.click();
+
     }
 }

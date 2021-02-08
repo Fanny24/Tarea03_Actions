@@ -17,12 +17,10 @@ public class Sec_AvailableRooms_logic {
         rooms.selectHotel();
         //rooms.addReservar();
     }
-   /* public void Confirmacion01(String a, String b)
-    {
-        rooms.ConfirmaReserva01(a,b);
-    }
-    public void Confirmacion02()
-    {
-        rooms.ConfirmaReserva02();
-    }*/
+
+   /* public void Confirmacion01(String a, String b)    {
+        rooms.ConfirmaReserva01(a,b);    }
+    public void Confirmacion02()    {
+        rooms.ConfirmaReserva02();    }*/
+
 }

@@ -58,15 +58,15 @@ public class Sec_AvailableRooms {
     public void selectHotel(){
         op01 = result01.getText();
         String obt01 = op01.substring(1,4);
-        System.out.println("el primer precio es "+(obt01));
+        System.out.println("Opcion 01: "+(obt01));
 
         op02 = result02.getText();
         String obt02 = op02.substring(1,4);
-        System.out.println("el segundo precio es "+(obt02));
+        System.out.println("Opcion 02: "+(obt02));
 
         op03 = result03.getText();
         String obt03 = op03.substring(1,4);
-        System.out.println("el tercer precio es "+(obt03));
+        System.out.println("Opcion 03: "+(obt03));
 
         int i1 = Integer.parseInt(obt01);
         int i2 = Integer.parseInt(obt02);
@@ -75,17 +75,17 @@ public class Sec_AvailableRooms {
         if (i1 < i2 & i1 < i3) {
             Actions builder = new Actions(Driver.returnDriver());
             builder.moveToElement(checkSelect01).click().build().perform();
-            System.out.println("Hotel con precio mas económico: "+ (i1));
+            System.out.println("\u001B[43;30m Hotel con precio mas económico: \u001B[0m"+ (i1));
         }
             if (i2 < i1 & i2 < i3) {
                 Actions builder = new Actions(Driver.returnDriver());
                 builder.moveToElement(checkSelect02).click().build().perform();
-                System.out.println("Hotel con precio mas económico: " + (i2));
+                System.out.println("\u001B[43;30m Hotel con precio mas económico: \u001B[0m" + (i2));
             }
                 if(i3 < i1 & i3 < i2) {
                 Actions builder = new Actions(Driver.returnDriver());
                 builder.moveToElement(checkSelect03).click().build().perform();
-                System.out.println("Hotel con precio mas económico: " + (i3));
+                System.out.println("\u001B[43;30m Hotel con precio mas económico: \u001B[0m" + (i3));
                 }
     }
 

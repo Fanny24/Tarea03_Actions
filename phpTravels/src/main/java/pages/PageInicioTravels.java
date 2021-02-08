@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import java.security.cert.X509Certificate;
 
 
@@ -48,6 +47,12 @@ public class PageInicioTravels {
     @FindBy (name = "children")
     WebElement cantNinos;
 
+    @FindBy(xpath = "//*[@id='hotels']/div/div/form/div/div/div[3]/div/div/div/div/div/div/div[2]/div/div[2]/div/span/button[1]")
+    WebElement btnIncrementNi;
+
+    @FindBy(xpath = "//*[@id='hotels']/div/div/form/div/div/div[3]/div/div/div/div/div/div/div[2]/div/div[2]/div/span/button[2]")
+    WebElement btnDecrementNi;
+
     @FindBy (xpath = "//*[@id='hotels']/div/div/form/div/div/div[4]/button")
     WebElement btnBuscar;
 
@@ -70,21 +75,17 @@ public class PageInicioTravels {
         Driver.implicitwait();
         txtDestino.click();
         txtDestino2.click();
-        //txtDestino.clear();
         Driver.implicitwait();
         txtDestino2.sendKeys(destino);
         Driver.implicitwait();
         Driver.implicitwait();
-        //txtDestino2.sendKeys(Keys.TAB);
         listResult.click();
     }
 
     public void addCheckIn( String inicio) {
-       // Driver.customWait_clickable(txtCheckIn);
         txtCheckIn.clear();
         txtCheckIn.sendKeys(inicio);
         txtCheckIn.sendKeys(Keys.TAB);
-       // txtCheckIn.sendKeys(Keys.ENTER);
     }
 
     public void addCheckOut( String fin) {
@@ -104,14 +105,41 @@ public class PageInicioTravels {
         Driver.implicitwait();
     }
 
-    public void addAdults() {
+    public void addAdults(Integer cant) {
         Driver.customWait_clickable(btnIncrementAdult);
         Driver.customWait_clickable(btnDecrementAdult);
-        btnDecrementAdult.click();
-        btnDecrementAdult.click();
-        Driver.implicitwait();
-        btnIncrementAdult.click();
-        btnIncrementAdult.click();
+
+        int cantEsperadaAd = 2;
+
+
+        if(cantEsperadaAd > cant){
+            btnDecrementAdult.click();
+        }
+        if (cantEsperadaAd< cant){
+            btnIncrementAdult.click();
+        }
+        if (cantEsperadaAd == cant){
+            cantAdults.sendKeys((Keys.TAB));
+        }
+
+    }
+
+    public void addNinos(Integer cant) {
+        Driver.customWait_clickable(btnIncrementNi);
+        Driver.customWait_clickable(btnDecrementNi);
+
+        int cantEsperadaNi = 0;
+
+        if(cantEsperadaNi > cant){
+            btnDecrementNi.click();
+        }
+        if (cantEsperadaNi< cant){
+            System.out.println("No debe permitir # negativos");
+        }
+        if (cantEsperadaNi == cant){
+            System.out.println("Cantidad correcta");
+        }
+
     }
 
     public void LimpiarCantNinos() {

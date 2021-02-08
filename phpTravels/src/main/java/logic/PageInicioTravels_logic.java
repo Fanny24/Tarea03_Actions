@@ -24,16 +24,28 @@ public class PageInicioTravels_logic {
         Driver.implicitwait();
 
     }
-    public void BusquedaFin(String fecFin)
-    {
+    public void BusquedaFin(String fecFin) {
 
         pagInicio.addCheckOut(fecFin);
         Driver.implicitwait();
         //pagInicio.LimpiarCantAdult();
         Driver.implicitwait();
-        pagInicio.addAdults();
-        Driver.implicitwait();
-        Driver.implicitwait();
+    }
+
+    public void cAdultos(Integer a) throws InterruptedException{
+        Driver.implicitwait2();
+        pagInicio.addAdults(a);
+    }
+
+    public void cNinos(Integer b) throws InterruptedException{
+        Driver.implicitwait2();
+        pagInicio.addNinos(b);
+    }
+
+    public void FinBusq(){
+       // pagInicio.addAdults();
+     //   Driver.implicitwait();
+     //  Driver.implicitwait();
         //pagInicio.LimpiarCantNinos();
         Driver.implicitwait();
         pagInicio.Busqueda();

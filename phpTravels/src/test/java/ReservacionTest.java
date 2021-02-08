@@ -36,7 +36,7 @@ public class ReservacionTest {
         reviLg = new Sec_Reviews_logic(Driver);
     }
 
-    @Test(priority = 1, testName = "Actions")
+    /*@Test(priority = 1, testName = "Actions")
     public void acciones() throws InterruptedException
     {
         //driver.manage().window().maximize();
@@ -57,32 +57,34 @@ public class ReservacionTest {
         Driver.implicitwait();
 
         System.out.println("finalizado");
-    }
+    }*/
 
 
-   @Test(priority = 2, testName = "Windows")
+   @Test(priority = 1, testName = "Windows")
     public void ventanas() throws InterruptedException {
         Driver.goto_url("https://phptravels.com/demo/");
 
-        String aux = Driver.windowParent();
         Driver.implicitwait2();
         Driver.scroll(100);
         WebElement link = Driver.returnDriver().findElement(By.xpath("//*[@id='Main']/section[1]/div/div/div[2]/div/div/div[2]/div/div/div[1]/div/a"));
         link.click();
         Driver.switchWindows(); // mantiene foco
 
-       Driver.implicitwait2();
-       Driver.implicitwait2();
+        Driver.implicitwait2();
+        Driver.implicitwait2();
         iniLg.BusquedaDestino("Tria Hotel Istanbul");
         Driver.implicitwait();
         iniLg.BusquedaInicio("07/02/2021");
         Driver.implicitwait();
         iniLg.BusquedaFin("15/02/2021");
+        iniLg.cAdultos(2);
+        iniLg.cNinos(0);
+        iniLg.FinBusq();
 
-        //Driver.implicitwait2();
         Driver.scroll(1800);
         Driver.implicitwait2();
         roomLg.SeleccionarHabit();
+
         /*roomLg.Confirmacion01("user@phptravels.com","demouser");
         Driver.scroll(1800);
         roomLg.Confirmacion02();*/
@@ -90,20 +92,22 @@ public class ReservacionTest {
        Driver.scroll(5000);
        Driver.implicitwait2();
        reviLg.IngresarReview();
-       Driver.implicitwait();
+       //reviLg.IngresarReview();
+       //Driver.implicitwait2();
        reviLg.PublicarReview("Diane","test13@gmail.com","prueba prueba comentario desc - 005");
        Driver.implicitwait2();
        Driver.scroll(5500);
-       Driver.implicitwait2();
+       Driver.implicitwait();
+       reviLg.EnviarReview();
+       reviLg.EnviarReview();
+       Driver.implicitwait();
 
-
-       //reviLg.IngresarReview("Diane","test13@gmail.com","prueba prueba comentario desc - 005");
-       // String a = wp.newWindowText().getText();
-       // System.out.println(a);
+       System.out.println(" *** TC Finalizado *** ");
     }
-
-
-
+    @AfterClass
+    public void teardown() {
+        Driver.teardown();
+    }
 }
 
 
